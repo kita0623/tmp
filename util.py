@@ -39,3 +39,15 @@ application_train = pd.read_csv("./home-credit-default-risk/application_train.cs
 application_train = reduce_mem_usage(application_train) # メモリ削減
 print(f'{application_train.shape[0]:,} x {application_train.shape[1]:,}')
 display(application_train.head(3))
+
+
+
+print(list(df.select_dtypes(include='number').columns))
+print(list(df.select_dtypes(include=np.number).columns))
+print(list(df.select_dtypes(exclude='number').columns))
+print(list(df.select_dtypes(include='category').columns))
+print(df.select_dtypes(include='number').columns.to_list())
+
+
+import warnings
+warnings.filterwarnings('ignore')
