@@ -51,3 +51,33 @@ print(df.select_dtypes(include='number').columns.to_list())
 
 import warnings
 warnings.filterwarnings('ignore')
+
+
+# 各特徴量のユニーク値の数
+for col in traindf.columns:
+	print(col + ":" + str(len(traindf[col].unique())))
+
+
+# 各特徴量のユニーク値の数
+for col in traindf.columns:
+	print(col + ":" + str(len(traindf[col].unique())))
+
+df_train.nunique().to_frame()
+
+
+
+# 特徴量毎のcountplot
+
+skip_cols = ['ncodpers', 'renta'] # 出力に時間がかかりすぎる2つの変数をskip
+
+for col in df_train.columns:
+
+    if col in skip_cols:
+        continue
+        
+    print('='*50)
+    print('col : ', col)
+    
+    f, ax = plt.subplots(figsize=(25, 5))
+    sns.countplot(x=col, data=df_train, alpha=0.5)
+    plt.show()
