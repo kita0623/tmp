@@ -81,3 +81,11 @@ for col in df_train.columns:
     f, ax = plt.subplots(figsize=(25, 5))
     sns.countplot(x=col, data=df_train, alpha=0.5)
     plt.show()
+
+
+
+df_corr = df_X.corr()  # 相関係数
+# df_corr
+
+plt.figure(figsize=(25, 10))
+sns.heatmap(df_corr, vmax=1, vmin=-1, center=0, annot=True, fmt=".2f", cmap='jet')
